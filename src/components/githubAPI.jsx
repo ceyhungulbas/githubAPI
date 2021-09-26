@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import GithubRepo from './GithubRepo';
 
 
 const GithubAPI = () =>{
-    const [user, setUser] = useState("ceyhungul")
+    const [user, setUser] = useState("")
     const [githubProfile, setGithubProfile] = useState([])
-    const [githubProfileRepo, setGithubProfileRepo] = useState({})
 
     
 
@@ -12,40 +12,46 @@ const GithubAPI = () =>{
         fetch(`https://api.github.com/search/users?q=${user}`)
             .then(response => response.json())
             .then(data => setGithubProfile(data.items))
-            .then(data => console.log("data githubProfile", data))
-            .then(console.log("githubProfile", githubProfile))
-
-        fetch(`https://api.github.com/users/${user}/repos`)
-            .then(response => response.json())
-            .then(data => setGithubProfileRepo(data))
-            .then(data => console.log("data githubProfileRepo", data))
-            .then(console.log("githubProfileRepo", githubProfileRepo))
     }, [])
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
+
 
     return(
         <div className="githubAPIMainDiv">
             <h1>Github API</h1>
             <div className="githubAPIMainDivFormArea">
-
+                <form onSubmit={handleSubmit}>
+                    <span>User</span>
+                    <input 
+                        type="text" 
+                        onChange={(e) => setUser(e.target.value)}
+                    />
+                    <input type="submit" />
+                </form>
             
             </div>
             <div className="github">
                 <div className="githubProfileParentDiv">
-                    {githubProfile.map((user) => {
+                    {githubProfile.map((user, key) => {
                     return(
-                        <div className="githubProfileChildDiv">
+                        <div className="githubProfileChildDiv" key={key}>
                             <h2>{user.login}</h2>
                             <img src={user.avatar_url} alt={user.login} />
                             <div className="githubProfileChildDivDetails">
-                                {/* {user.twitter_username ? <a href=`https://twitter.com/${user.twitter_username}`>Twitter</a> : null} */}
-                                <a href={user.html_url} target="_blank">Github Link</a>
+                                <a href={user.html_url} target="_blank" rel="noopener noreferrer">Github Link</a>
+                            </div>
+                            <div className="githubProfileRepoParentDiv">
+                                <GithubRepo user = {user} />
                             </div>
                         </div>
                         
                         )
                     })}
                 </div>
-                <div></div>
             </div>
         </div>
     )
@@ -54,7 +60,8 @@ const GithubAPI = () =>{
 export default GithubAPI
 
 
-{/* <div className="githubAPIMainDivFormArea">
+{/* 
+<div className="githubAPIMainDivFormArea">
     <span>Updated name: {user}</span>
     <p>Change name:</p>
     <input
