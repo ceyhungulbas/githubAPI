@@ -3,20 +3,20 @@ import React, { useState, useEffect } from 'react';
 const GithubRepo = (props) =>{
     console.log("props: ", props);
 
-    const [user, setUser] = useState(props)
     const [githubProfileRepo, setGithubProfileRepo] = useState([])
 
     useEffect(() =>{
-        fetch(`https://api.github.com/users/${props.user.login}/repos`)
+        // fetch(`https://api.github.com/users/${props.user.login}/repos`)
+        fetch(`https://api.github.com/users/ceyhungulbas/repos`)
             .then(response => response.json())
             .then(data => setGithubProfileRepo(data))
     }, [])
 
     return(
         <>
-            {githubProfileRepo.map((info) => {
+            {githubProfileRepo.map((info, key) => {
                 return(
-                    <div className="githubRepo">
+                    <div className="githubRepo" key={key}>
                         <a href={info.html_url} target="_blank" rel="noopener noreferrer">{info.name}</a>
                     </div>
                 )
