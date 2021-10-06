@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+body{
+    font-family: 'Acme', sans-serif;
+}
+
+
+
+.githubProfileChildDivDetails > a > svg{
+    width: 2em;
+    height: 2em;
+    color: black;
+    margin-top: 1.5%;
+}
+
+.githubProfileChildDivDetails > a > svg:hover{    
+    color: purple;
+    transition: 0.3s;
+}

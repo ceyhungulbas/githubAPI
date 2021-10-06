@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import GithubRepo from './GithubRepo';
 import { Github } from "react-bootstrap-icons";
+import "./GithubAPI.css"
 
 
 const GithubAPI = () =>{
     const [user, setUser] = useState("ceyhungulbas")
+    const [tempUser, setTempUser] = useState("")
     const [githubProfile, setGithubProfile] = useState([])
-
-    
 
     useEffect(() =>{
         fetch(`https://api.github.com/search/users?q=${user}`)
@@ -15,10 +15,16 @@ const GithubAPI = () =>{
             .then(data => setGithubProfile(data.items))
     }, [user])
 
+    useEffect(() => {
+        fetch("https://api.github.com/rate_limit")
+            .then(response => response.json)
+            .then(data => console.log("data: ", data))
+
+    }, [])
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        setUser(e.target.value)
-        console.log("user: ", user);
+        setUser(tempUser)
     }
 
 
@@ -31,7 +37,7 @@ const GithubAPI = () =>{
                     <label>User</label>
                     <input 
                         type="text"
-                        // onChange={(e) => setUser(e.target.value)}
+                        onChange={(e) => setTempUser(e.target.value)}
                     />
                     <button onClick={handleSubmit}> type="submit" value="Search!" </button>
                 </form>
@@ -48,7 +54,7 @@ const GithubAPI = () =>{
                                 <a href={user.html_url} target="_blank" rel="noopener noreferrer"><Github /></a>
                             </div>
                             <div className="githubProfileRepoParentDiv">
-                                {/* <GithubRepo user = {user} /> */}
+                                <GithubRepo user={user} />
                             </div>
                         </div>
                         

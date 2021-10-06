@@ -6,11 +6,11 @@ const GithubRepo = (props) =>{
     const [githubProfileRepo, setGithubProfileRepo] = useState([])
 
     useEffect(() =>{
-        // fetch(`https://api.github.com/users/${props.user.login}/repos`)
-        fetch(`https://api.github.com/users/ceyhungulbas/repos`)
+        fetch(`https://api.github.com/users/${props.user.login}/repos`)
+        // fetch(`https://api.github.com/users/ceyhungulbas/repos`)
             .then(response => response.json())
             .then(data => setGithubProfileRepo(data))
-    }, [])
+    }, [props.user.login])
 
     return(
         <>
@@ -26,4 +26,4 @@ const GithubRepo = (props) =>{
 
 }
 
-export default GithubRepo
+export default GithubRepo;
