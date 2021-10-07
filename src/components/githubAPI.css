@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap");
 
 html,
 body {
@@ -10,94 +10,94 @@ body {
     url(./../background.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
-.githubProfileChildDiv{
-    margin: 5% 0 10% 0;
-    display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: center;
-	align-content: stretch;
+.githubProfileChildDiv {
+  margin: 5% 0 10% 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
 }
 
-.githubProfileRepoParentDiv{
-    width: 50%;
+.githubProfileRepoParentDiv {
+  width: 50%;
 }
 
-.githubRepo{
-    text-align: left;
+.githubRepo {
+  text-align: left;
 }
 
 .githubRepo > a {
-    text-decoration: none;
-    color: #640000;
-    font-size: large;
+  text-decoration: none;
+  color: #640000;
+  font-size: large;
 }
 
-.githubRepo > a:hover{
-    color: #FFFFFF;
-    transition: 0.3s;
+.githubRepo > a:hover {
+  color: #ffffff;
+  transition: 0.3s;
 }
 
-.githubProfileChildDivDetails{
-    margin: 1.5% 0;
+.githubProfileChildDivDetails {
+  margin: 1.5% 0;
 }
 
-.githubProfileChildDivDetails > a > svg{
-    width: 2em;
-    height: 2em;
-    color: black;
-    margin-top: 1.5%;
+.githubProfileChildDivDetails > a > svg {
+  width: 2em;
+  height: 2em;
+  color: black;
+  margin-top: 1.5%;
 }
 
-.githubProfileChildDivDetails > a > svg:hover{    
-    color: #FFFFFF;
-    transition: 0.3s;
+.githubProfileChildDivDetails > a > svg:hover {
+  color: #ffffff;
+  transition: 0.3s;
 }
 
-.githubProfileChildDiv > img{
-    border-radius: 15px;
+.githubProfileChildDiv > img {
+  border-radius: 15px;
 }
 
-form{
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: stretch;
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
 }
 
 form > input {
-    margin: 3% 0 2% 0;
-    border-radius: 10px;
-    text-align: center;
+  margin: 3% 0 2% 0;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .githubAPIMainDiv > h1 {
-    color: #FFFFFF;
-    margin-top: 3.5%;
+  color: #ffffff;
+  margin-top: 3.5%;
 }
 
 @media only screen and (min-width: 120px) and (max-width: 900px),
   only screen and (max-device-width: 900px) {
-    html{
-        width: 100%;
-    }
+  html {
+    width: 100%;
+  }
 
-    .githubProfileRepoParentDiv{
-        width: 85%;
-    }
+  .githubProfileRepoParentDiv {
+    width: 85%;
+  }
 
-    .githubProfileChildDiv > img{
-        border-radius: 15px;
-        width: 75%;
-    }
+  .githubProfileChildDiv > img {
+    border-radius: 15px;
+    width: 75%;
+  }
 
-    .githubRepo{
-        margin: 3% 0;
-    }
+  .githubRepo {
+    margin: 3% 0;
+  }
 }
