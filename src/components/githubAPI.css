@@ -1,10 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
 
-body{
-    font-family: 'Acme', sans-serif;
+html,
+body {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.6)
+    ),
+    url(./../background.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
+.githubProfileChildDiv{
+    margin: 5% 0 10% 0;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+}
 
+.githubProfileRepoParentDiv{
+    width: 50%;
+}
+
+.githubRepo{
+    text-align: left;
+}
+
+.githubRepo > a {
+    text-decoration: none;
+    color: #640000;
+    font-size: large;
+}
+
+.githubRepo > a:hover{
+    color: #FFFFFF;
+    transition: 0.3s;
+}
+
+.githubProfileChildDivDetails{
+    margin: 1.5% 0;
+}
 
 .githubProfileChildDivDetails > a > svg{
     width: 2em;
@@ -14,6 +54,50 @@ body{
 }
 
 .githubProfileChildDivDetails > a > svg:hover{    
-    color: purple;
+    color: #FFFFFF;
     transition: 0.3s;
+}
+
+.githubProfileChildDiv > img{
+    border-radius: 15px;
+}
+
+form{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+}
+
+form > input {
+    margin: 3% 0 2% 0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.githubAPIMainDiv > h1 {
+    color: #FFFFFF;
+    margin-top: 3.5%;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 900px),
+  only screen and (max-device-width: 900px) {
+    html{
+        width: 100%;
+    }
+
+    .githubProfileRepoParentDiv{
+        width: 85%;
+    }
+
+    .githubProfileChildDiv > img{
+        border-radius: 15px;
+        width: 75%;
+    }
+
+    .githubRepo{
+        margin: 3% 0;
+    }
 }

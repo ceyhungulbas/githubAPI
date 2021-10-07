@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import GithubRepo from './GithubRepo';
 import { Github } from "react-bootstrap-icons";
+import { Button } from 'react-bootstrap';
 import "./GithubAPI.css"
 
 
@@ -15,12 +16,6 @@ const GithubAPI = () =>{
             .then(data => setGithubProfile(data.items))
     }, [user])
 
-    useEffect(() => {
-        fetch("https://api.github.com/rate_limit")
-            .then(response => response.json)
-            .then(data => console.log("data: ", data))
-
-    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -34,12 +29,12 @@ const GithubAPI = () =>{
             <h1>Github API</h1>
             <div className="githubAPIMainDivFormArea">
                 <form onSubmit={handleSubmit}>
-                    <label>User</label>
                     <input 
                         type="text"
                         onChange={(e) => setTempUser(e.target.value)}
+                        placeholder="Username"
                     />
-                    <button onClick={handleSubmit}> type="submit" value="Search!" </button>
+                    <Button variant="dark" onClick={handleSubmit}>Search!</Button>
                 </form>
             
             </div>

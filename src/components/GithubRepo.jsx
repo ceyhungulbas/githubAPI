@@ -7,7 +7,6 @@ const GithubRepo = (props) =>{
 
     useEffect(() =>{
         fetch(`https://api.github.com/users/${props.user.login}/repos`)
-        // fetch(`https://api.github.com/users/ceyhungulbas/repos`)
             .then(response => response.json())
             .then(data => setGithubProfileRepo(data))
     }, [props.user.login])
@@ -17,7 +16,7 @@ const GithubRepo = (props) =>{
             {githubProfileRepo.map((info, key) => {
                 return(
                     <div className="githubRepo" key={key}>
-                        <a href={info.html_url} target="_blank" rel="noopener noreferrer">{info.name}</a>
+                        <a href={info.html_url} target="_blank" rel="noopener noreferrer">- {info.name}</a>
                     </div>
                 )
             })}
